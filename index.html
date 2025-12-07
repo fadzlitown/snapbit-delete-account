@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapBit - FAQ & Data Deletion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50, #45A049);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 16px;
+            border: none;
+            padding: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .toc .section-number {
+            background: #4CAF50;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 22px;
+            margin: 35px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 18px;
+            margin: 25px 0 12px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Important Box - Data Deletion Highlight */
+        .critical-box {
+            background: linear-gradient(135deg, #ffebee, #fff);
+            border: 2px solid #f44336;
+            padding: 24px;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+
+        .critical-box h3 {
+            color: #c62828;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .critical-box .icon {
+            font-size: 24px;
+        }
+
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #856404;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #1565c0;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box p {
+            margin: 0;
+            color: #2e7d32;
+        }
+
+        /* Step by Step Guide */
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .step-number {
+            counter-increment: step;
+            background: #4CAF50;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-number::before {
+            content: counter(step);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .step-content p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Screenshot placeholder */
+        .screenshot {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #999;
+            margin: 15px 0;
+        }
+
+        /* FAQ Accordion Style */
+        .faq-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #fafafa;
+            padding: 16px 20px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+
+        .faq-answer {
+            padding: 16px 20px;
+            border-top: 1px solid #e0e0e0;
+            background: white;
+        }
+
+        /* Data Types Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-email {
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        .email-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .email-button:hover {
+            background: #45a049;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .step {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">S</div>
+            <h1>SnapBit FAQ & Data Deletion</h1>
+            <p class="subtitle">Habit Tracking with Photo Proof</p>
+            <span class="last-updated">Last Updated: December 2024</span>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>Quick Navigation</h2>
+            <ul>
+                <li><a href="#data-deletion"><span class="section-number">1</span> How to Delete Your Data</a></li>
+                <li><a href="#delete-data-only"><span class="section-number">2</span> Delete Data Without Deleting Account</a></li>
+                <li><a href="#delete-account"><span class="section-number">3</span> Delete Your Account Completely</a></li>
+                <li><a href="#email-request"><span class="section-number">4</span> Request Data Deletion via Email</a></li>
+                <li><a href="#what-data"><span class="section-number">5</span> What Data We Collect</a></li>
+                <li><a href="#faq"><span class="section-number">6</span> Frequently Asked Questions</a></li>
+                <li><a href="#support-feedback"><span class="section-number">7</span> How to Send Support / Feedback</a></li>
+                <li><a href="#contact"><span class="section-number">8</span> Contact Support</a></li>
+            </ul>
+        </nav>
+
+        <!-- Critical Data Deletion Section -->
+        <section id="data-deletion">
+            <div class="critical-box">
+                <h3><span class="icon">&#128274;</span> Your Data, Your Choice</h3>
+                <p>SnapBit provides multiple ways for you to delete your data. You can:</p>
+                <ul>
+                    <li><strong>Delete specific data</strong> (habits and logs) while keeping your account</li>
+                    <li><strong>Delete your entire account</strong> and all associated data permanently</li>
+                    <li><strong>Request deletion via email</strong> if you prefer human assistance</li>
+                </ul>
+                <p style="margin-top: 15px; margin-bottom: 0;"><strong>All deletion requests are processed within 30 days.</strong></p>
+            </div>
+        </section>
+
+        <!-- Option 1: Delete Data Only -->
+        <section id="delete-data-only">
+            <h2>Option 1: Delete Data Without Deleting Account</h2>
+            <p>If you want to clear all your habits and tracking data but keep your SnapBit account, follow these steps:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Open SnapBit App</h4>
+                        <p>Launch the SnapBit app on your device and ensure you are signed in.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Go to Settings</h4>
+                        <p>Tap on the <strong>Settings</strong> tab at the bottom navigation bar (gear icon).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Scroll to "About" Section</h4>
+                        <p>Scroll down to find the <strong>About</strong> section near the bottom of the settings page.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Tap "Delete All Data"</h4>
+                        <p>Tap on <strong>"Delete All Data"</strong> (shown in orange text).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Confirm Deletion</h4>
+                        <p>A confirmation dialog will appear. Tap <strong>"Delete"</strong> to confirm. This will permanently delete all your habits, logs, and photos stored in the app.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>What gets deleted:</strong> All habits, completion logs, streak data, and photos stored within the app. Your account and preferences will remain intact.</p>
+            </div>
+        </section>
+
+        <!-- Option 2: Delete Account -->
+        <section id="delete-account">
+            <h2>Option 2: Delete Your Account Completely</h2>
+            <p>To permanently delete your SnapBit account and all associated data, follow these steps:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Open SnapBit App</h4>
+                        <p>Launch the SnapBit app on your device and ensure you are signed in.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Go to Settings</h4>
+                        <p>Tap on the <strong>Settings</strong> tab at the bottom navigation bar (gear icon).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Scroll to "About" Section</h4>
+                        <p>Scroll down to find the <strong>About</strong> section near the bottom of the settings page.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Tap "Delete Account"</h4>
+                        <p>Tap on <strong>"Delete Account"</strong> (shown in red text).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Re-authenticate (if required)</h4>
+                        <p>For security, you may be asked to sign in with Google again to confirm your identity.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Confirm Account Deletion</h4>
+                        <p>A confirmation dialog will appear. Tap <strong>"Delete Account"</strong> to permanently delete your account.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="critical-box">
+                <h3><span class="icon">&#9888;</span> Warning: This Action is Irreversible</h3>
+                <p>Deleting your account will permanently remove:</p>
+                <ul>
+                    <li>Your user profile and account information</li>
+                    <li>All habits and tracking data</li>
+                    <li>All photos stored within the app</li>
+                    <li>Streak history and progress analytics</li>
+                    <li>Any premium subscription status (manage through Google Play)</li>
+                </ul>
+                <p style="margin-top: 15px; margin-bottom: 0;"><strong>This cannot be undone. Make sure you want to proceed before confirming.</strong></p>
+            </div>
+        </section>
+
+        <!-- Option 3: Email Request -->
+        <section id="email-request">
+            <h2>Option 3: Request Data Deletion via Email</h2>
+            <p>If you prefer to request data deletion through email, or if you're unable to access your account, you can contact us directly:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Send an Email</h4>
+                        <p>Send an email to <a href="mailto:inovasitiglobal@gmail.com" class="contact-email">inovasitiglobal@gmail.com</a> with the subject line: <strong>"Data Deletion Request - SnapBit"</strong></p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Include Your Information</h4>
+                        <p>In your email, please include:</p>
+                        <ul style="margin-top: 8px;">
+                            <li>The email address associated with your SnapBit account</li>
+                            <li>Whether you want to delete <strong>all data only</strong> or <strong>your entire account</strong></li>
+                            <li>A brief confirmation that you understand this action is permanent</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Wait for Confirmation</h4>
+                        <p>We will process your request within <strong>30 days</strong> and send you a confirmation email once your data has been deleted.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Email Template:</strong><br><br>
+                Subject: Data Deletion Request - SnapBit<br><br>
+                Hi SnapBit Team,<br><br>
+                I would like to request [deletion of all my data / deletion of my account and all data].<br><br>
+                Account Email: [your-email@example.com]<br><br>
+                I understand this action is permanent and cannot be undone.<br><br>
+                Thank you.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="mailto:inovasitiglobal@gmail.com?subject=Data%20Deletion%20Request%20-%20SnapBit&body=Hi%20SnapBit%20Team%2C%0A%0AI%20would%20like%20to%20request%20%5Bdeletion%20of%20all%20my%20data%20%2F%20deletion%20of%20my%20account%20and%20all%20data%5D.%0A%0AAccount%20Email%3A%20%5Byour-email%40example.com%5D%0A%0AI%20understand%20this%20action%20is%20permanent%20and%20cannot%20be%20undone.%0A%0AThank%20you." class="email-button">
+                    &#9993; Send Data Deletion Request
+                </a>
+            </div>
+        </section>
+
+        <!-- What Data We Collect -->
+        <section id="what-data">
+            <h2>What Data Does SnapBit Collect?</h2>
+            <p>Here's a complete overview of the data SnapBit collects and what happens when you delete it:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Storage Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Account Info</strong></td>
+                        <td>Email, display name, profile photo (from Google)</td>
+                        <td>Firebase Authentication</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Habits</strong></td>
+                        <td>Habit names, categories, reminder times, icons</td>
+                        <td>Local device database</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Completion Logs</strong></td>
+                        <td>Daily check-ins, streak data, timestamps</td>
+                        <td>Local device database</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Photos</strong></td>
+                        <td>Habit proof photos you capture</td>
+                        <td>Local device storage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Settings</strong></td>
+                        <td>Notification preferences, camera settings</td>
+                        <td>Local device storage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics</strong></td>
+                        <td>Anonymous usage data, crash reports</td>
+                        <td>Firebase Analytics</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <p><strong>Privacy Note:</strong> Your habit data and photos are stored locally on your device by default and are never uploaded to our servers unless you explicitly share them. We prioritize your privacy.</p>
+            </div>
+        </section>
+
+        <!-- Support & Feedback Section -->
+        <section id="support-feedback">
+            <h2>How to Send Support / Feedback via Email</h2>
+            <p>We value your feedback and are here to help! You can easily send us support requests or feedback directly from the SnapBit app.</p>
+
+            <h3>Option A: Send Feedback from the App (Recommended)</h3>
+            <p>The easiest way to contact us is through the built-in feedback feature:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Open SnapBit App</h4>
+                        <p>Launch the SnapBit app on your device and ensure you are signed in.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Go to Settings</h4>
+                        <p>Tap on the <strong>Settings</strong> tab at the bottom navigation bar (gear icon).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Find "Help & Support" Section</h4>
+                        <p>Scroll down to locate the <strong>Help & Support</strong> section.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Tap "Contact Support / Feedback"</h4>
+                        <p>Tap on <strong>"Contact Support / Feedback"</strong> to open your email client with a pre-filled template.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Write Your Message</h4>
+                        <p>The email will automatically include your device info (app version, device model, OS version) to help us assist you better. Simply describe your issue or feedback and send!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <p><strong>Tip:</strong> Using the in-app feedback feature automatically includes helpful diagnostic information, which helps us resolve issues faster!</p>
+            </div>
+
+            <h3>Option B: Send Email Directly</h3>
+            <p>You can also email us directly at any time:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Open Your Email App</h4>
+                        <p>Open your preferred email application (Gmail, Outlook, Apple Mail, etc.).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Compose New Email</h4>
+                        <p>Create a new email to: <a href="mailto:inovasitiglobal@gmail.com" class="contact-email">inovasitiglobal@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Add Subject Line</h4>
+                        <p>Use a clear subject like: <strong>"SnapBit Support Request"</strong> or <strong>"SnapBit Feedback"</strong></p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Include Helpful Details</h4>
+                        <p>To help us assist you faster, please include:</p>
+                        <ul style="margin-top: 8px;">
+                            <li>Your device type (e.g., Samsung Galaxy S23, iPhone 15)</li>
+                            <li>Your operating system version (e.g., Android 14, iOS 17)</li>
+                            <li>SnapBit app version (found in Settings > About)</li>
+                            <li>A description of your issue or feedback</li>
+                            <li>Steps to reproduce the problem (if reporting a bug)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number"></div>
+                    <div class="step-content">
+                        <h4>Send Your Email</h4>
+                        <p>Click send and we'll respond within 1-2 business days.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Email Template for Support:</strong><br><br>
+                Subject: SnapBit Support Request<br><br>
+                Hi SnapBit Team,<br><br>
+                I'm experiencing [describe your issue / provide your feedback].<br><br>
+                Device: [Your device model]<br>
+                OS Version: [Android/iOS version]<br>
+                App Version: [SnapBit version from Settings]<br><br>
+                Steps to reproduce (if applicable):<br>
+                1. [First step]<br>
+                2. [Second step]<br><br>
+                Thank you for your help!</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="mailto:inovasitiglobal@gmail.com?subject=SnapBit%20Support%20Request&body=Hi%20SnapBit%20Team%2C%0A%0AI'm%20experiencing%20%5Bdescribe%20your%20issue%20%2F%20provide%20your%20feedback%5D.%0A%0ADevice%3A%20%5BYour%20device%20model%5D%0AOS%20Version%3A%20%5BAndroid%2FiOS%20version%5D%0AApp%20Version%3A%20%5BSnapBit%20version%20from%20Settings%5D%0A%0AThank%20you%20for%20your%20help!" class="email-button">
+                    &#9993; Send Support / Feedback Email
+                </a>
+            </div>
+
+            <h3>What We Can Help With</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bug Reports</strong></td>
+                        <td>App crashes, features not working, sync issues</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Feature Requests</strong></td>
+                        <td>New habit types, UI improvements, integrations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Account Issues</strong></td>
+                        <td>Login problems, subscription questions, data sync</td>
+                    </tr>
+                    <tr>
+                        <td><strong>General Questions</strong></td>
+                        <td>How to use features, best practices, tips</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Billing & Subscriptions</strong></td>
+                        <td>Premium features, refunds, payment issues</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>Response Time:</strong> We typically respond to all support requests within 1-2 business days. For urgent billing issues, please also contact Google Play Support directly.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long does it take to delete my data?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>When you delete data through the app, it is removed immediately from your device. If you request deletion via email, we process requests within 30 days and will send you a confirmation once complete.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I recover my data after deletion?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. Once data is deleted, it cannot be recovered. We recommend exporting any important information before proceeding with deletion. If you saved photos to your device's gallery (Premium feature), those will remain on your device.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What happens to my premium subscription if I delete my account?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Deleting your SnapBit account does not automatically cancel your Google Play subscription. You must cancel your subscription separately through the Google Play Store to avoid future charges. Go to Google Play Store > Menu > Subscriptions > SnapBit > Cancel.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Will my photos be deleted if I only delete my data (not account)?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, choosing "Delete All Data" will delete all photos stored within the SnapBit app. However, if you have the "Photo Gallery" option enabled (Premium), copies saved to your device's gallery will remain.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    I can't access my account. How can I delete my data?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>If you cannot access your account, please send a data deletion request via email to <a href="mailto:inovasitiglobal@gmail.com" class="contact-email">inovasitiglobal@gmail.com</a>. Include the email address associated with your account, and we will verify your identity and process your request.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does SnapBit share my data with third parties?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. SnapBit does not sell or share your personal data with third parties. We use Firebase for authentication and analytics, and Google AdMob for ads (free tier only). For more details, please see our <a href="https://fadzlitown.github.io/snapbit-privacy-policy/" class="contact-email">Privacy Policy</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I delete individual habits instead of all data?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! You can delete individual habits from the Habits tab. Tap on a habit, then select "Delete Habit" from the options. This will remove that specific habit and its associated logs and photos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I contact support from within the app?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Go to <strong>Settings > Help & Support > Contact Support / Feedback</strong>. This will open your email app with a pre-filled template that includes your device information, making it easier for us to help you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long does it take to get a response to my support request?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We typically respond to all support requests within 1-2 business days. For more complex issues, it may take a bit longer, but we'll always acknowledge your request promptly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What information should I include when reporting a bug?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>To help us resolve your issue quickly, please include: (1) Your device model and OS version, (2) SnapBit app version, (3) A clear description of the problem, (4) Steps to reproduce the issue, and (5) Any error messages you saw. Using the in-app feedback feature automatically includes device info!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I request a new feature?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We love hearing from our users. Send your feature requests to <a href="mailto:inovasitiglobal@gmail.com" class="contact-email">inovasitiglobal@gmail.com</a> with "Feature Request" in the subject line. While we can't implement every suggestion, we carefully consider all feedback when planning updates.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    I'm having issues with my Premium subscription. Who do I contact?
+                    <span>&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For subscription issues: (1) First, check your subscription status in Google Play Store > Menu > Subscriptions. (2) For billing disputes or refund requests, contact Google Play Support directly as they manage all payments. (3) For app-related subscription features not working, contact us at <a href="mailto:inovasitiglobal@gmail.com" class="contact-email">inovasitiglobal@gmail.com</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-section">
+                <h2 style="margin-top: 0; border: none; color: #333;">Need Help?</h2>
+                <p>If you have questions about data deletion or need assistance, our support team is here to help.</p>
+                <p style="margin-top: 20px;">
+                    <strong>Inovasiti Global</strong><br>
+                    Email: <a href="mailto:inovasitiglobal@gmail.com" class="contact-email">inovasitiglobal@gmail.com</a>
+                </p>
+                <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                    We typically respond within 1-2 business days.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 SnapBit by Inovasiti Global. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://fadzlitown.github.io/snapbit-privacy-policy/">Privacy Policy</a> |
+                <a href="snapabit_terms_of_use.html">Terms of Use</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
